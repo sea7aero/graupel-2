@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Flight Predictions" href="predictions.html" />
+    <link rel="next" title="Data Analysis" href="data-analysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -90,18 +90,8 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="predictions.html">
-   Flight Predictions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="launch.html">
-   Launch Day
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="data-analysis.html">
-   Clean up data
+   Data Analysis
   </a>
  </li>
 </ul>
@@ -183,6 +173,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mission-parameters">
+   Mission Parameters
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -193,14 +196,22 @@
                 
   <div class="section" id="graupel-2">
 <h1>Graupel-2<a class="headerlink" href="#graupel-2" title="Permalink to this headline">¶</a></h1>
-<p>Graupel-2 is a planned High Altitude Balloon launch designed with the goal of sending a balloon to 100,000’ or more,
+<p>Graupel-2 is a High Altitude Balloon launch designed with the goal of sending a balloon to 100,000’ or more,
 capturing a high definition video of the flight, and recovering the payload.  It is a follow-up to the mostly successful
-<a class="reference external" href="https://sea7aero.space/graupel-1">Graupel-1</a> mission with improvements to the payload and tracker software designed to
-hopefully fix the problem of our camera battery getting too cold and dying half way through the mission.</p>
+<a class="reference external" href="https://sea7aero.space/graupel-1">Graupel-1</a> mission with improvements to the payload and tracker software designed to fix the problem of our camera battery getting too cold and dying half way through the mission.</p>
 <p>In addition, it is serving as a test bed for the <a class="reference external" href="https://sea7aero.space/pyhab">PyHAB</a> python library for HAB flight
 simulations.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<p>Graupel-2 was launched on September 25th, 2021 and successfully recovered - all mission goals were achieved.</p>
+<div class="section" id="mission-parameters">
+<h2>Mission Parameters<a class="headerlink" href="#mission-parameters" title="Permalink to this headline">¶</a></h2>
+<p>As the mission requirements were to use a rather high-end camera - a <a class="reference external" href="https://gopro.com/en/us/shop/cameras/hero9-black/CHDHX-901-master.html">GoPro Hero 9 Black</a> - and recovery of the payload was a priority, we used two redundant tracking solutions: a <a class="reference external" href="https://www.findmespot.com/en-us/products-services/spot-trace">SPOT Trace</a> satellite tracker, and an <a class="reference external" href="https://github.com/sea7aero/horizon2">Arduino-based flight computer</a>.  In addition to tracking, the flight computer was used to log telemetry for later analysis and processing.</p>
+<p>Attached to the payload was a <a class="reference external" href="https://the-rocketman.com/recovery-html/">4’ Rocketman Parachute</a> to safely return the payload to Earth.</p>
+<p>And to get the whole thing up in the air, we decided on a <a class="reference external" href="https://www.kaymont.com/habphotography">Kaymont HAB-1200</a> balloon, procured from <a class="reference external" href="https://www.highaltitudescience.com/products/near-space-balloon-1200-g">High Altitude Science</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">payload_mass</span> <span class="o">=</span> <span class="mf">1460.0</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">g</span>
+<span class="n">parachute_mass</span> <span class="o">=</span> <span class="mf">120.0</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">g</span>
+<span class="n">balloon_mass</span> <span class="o">=</span> <span class="mf">1200.0</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">g</span>
 </pre></div>
+</div>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -231,7 +242,7 @@ simulations.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="predictions.html" title="next page">Flight Predictions</a>
+    <a class='right-next' id="next-link" href="data-analysis.html" title="next page">Data Analysis</a>
 
         </div>
         

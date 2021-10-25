@@ -4,7 +4,5 @@
 format: jb-book
 root: index
 chapters:
-- file: predictions
-- file: launch
 - file: data-analysis
-- file: create-kml
+- file: flight-path

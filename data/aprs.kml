@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<NetworkLink>
+	<name>APRS: KJ7VPV-11</name>
+	<open>1</open>
+	<Snippet maxLines="2">Tracking KJ7VPV-11</Snippet>
+	<description><![CDATA[<p>Tracking: KJ7VPV-11</p>
+ <p>Google Earth application by <a href='http://aprs.fi/'>aprs.fi</a></p>]]></description>
+	<Link>
+		<href>http://aprs.fi/aprsupdate.kml?units=metric&amp;units_temp=C&amp;call=KJ7VPV-11</href>
+		<refreshMode>onExpire</refreshMode>
+		<viewRefreshMode>onStop</viewRefreshMode>
+		<viewRefreshTime>1</viewRefreshTime>
+	</Link>
+</NetworkLink>
+</kml>

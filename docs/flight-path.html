@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; Graupel-2</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data Analysis" href="data-analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Graupel-2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Graupel-2
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-analysis.html">
+   Data Analysis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/flight-path.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sea7aero/graupel-2"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sea7aero/graupel-2/main?urlpath=tree/book/flight-path.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;../data&#39;</span>
+<span class="n">mission_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s1">/clean-data.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mission_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>millis</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>hour</th>
+      <th>minute</th>
+      <th>second</th>
+      <th>voltage</th>
+      <th>satellites</th>
+      <th>hdop</th>
+      <th>...</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>temperature_C</th>
+      <th>pressure_Pa</th>
+      <th>pressure_altitude_m</th>
+      <th>humidity_RH</th>
+      <th>mission_millis</th>
+      <th>blended_altitude_m</th>
+      <th>altitude_m</th>
+      <th>ascent_rate_mps</th>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-09-25 17:28:11</th>
+      <td>135015</td>
+      <td>2021.0</td>
+      <td>9.0</td>
+      <td>25.0</td>
+      <td>17.0</td>
+      <td>28.0</td>
+      <td>11.0</td>
+      <td>4.40</td>
+      <td>6.0</td>
+      <td>15.71</td>
+      <td>...</td>
+      <td>47.160885</td>
+      <td>-120.848351</td>
+      <td>20.34</td>
+      <td>93890.44</td>
+      <td>638.23</td>
+      <td>39.34</td>
+      <td>0</td>
+      <td>640.489791</td>
+      <td>657.3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-09-25 17:28:12</th>
+      <td>136017</td>
+      <td>2021.0</td>
+      <td>9.0</td>
+      <td>25.0</td>
+      <td>17.0</td>
+      <td>28.0</td>
+      <td>12.0</td>
+      <td>4.37</td>
+      <td>7.0</td>
+      <td>2.05</td>
+      <td>...</td>
+      <td>47.160892</td>
+      <td>-120.848351</td>
+      <td>20.39</td>
+      <td>93892.72</td>
+      <td>638.02</td>
+      <td>39.21</td>
+      <td>1002</td>
+      <td>640.287907</td>
+      <td>660.1</td>
+      <td>2.800000</td>
+    </tr>
+    <tr>
+      <th>2021-09-25 17:28:13</th>
+      <td>137021</td>
+      <td>2021.0</td>
+      <td>9.0</td>
+      <td>25.0</td>
+      <td>17.0</td>
+      <td>28.0</td>
+      <td>13.0</td>
+      <td>4.37</td>
+      <td>7.0</td>
+      <td>2.06</td>
+      <td>...</td>
+      <td>47.160877</td>
+      <td>-120.848343</td>
+      <td>20.45</td>
+      <td>93891.80</td>
+      <td>638.10</td>
+      <td>39.26</td>
+      <td>2006</td>
+      <td>640.369369</td>
+      <td>662.6</td>
+      <td>2.645000</td>
+    </tr>
+    <tr>
+      <th>2021-09-25 17:28:14</th>
+      <td>138027</td>
+      <td>2021.0</td>
+      <td>9.0</td>
+      <td>25.0</td>
+      <td>17.0</td>
+      <td>28.0</td>
+      <td>14.0</td>
+      <td>4.37</td>
+      <td>8.0</td>
+      <td>2.05</td>
+      <td>...</td>
+      <td>47.160824</td>
+      <td>-120.848351</td>
+      <td>20.49</td>
+      <td>93893.68</td>
+      <td>637.94</td>
+      <td>39.78</td>
+      <td>3012</td>
+      <td>640.202904</td>
+      <td>663.1</td>
+      <td>1.881822</td>
+    </tr>
+    <tr>
+      <th>2021-09-25 17:28:15</th>
+      <td>139032</td>
+      <td>2021.0</td>
+      <td>9.0</td>
+      <td>25.0</td>
+      <td>17.0</td>
+      <td>28.0</td>
+      <td>15.0</td>
+      <td>4.43</td>
+      <td>8.0</td>
+      <td>1.86</td>
+      <td>...</td>
+      <td>47.160759</td>
+      <td>-120.848343</td>
+      <td>20.53</td>
+      <td>93889.08</td>
+      <td>638.34</td>
+      <td>40.20</td>
+      <td>4017</td>
+      <td>640.610215</td>
+      <td>661.0</td>
+      <td>0.784685</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 23 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">burst_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">])</span>
+<span class="n">burst_time</span> <span class="o">=</span> <span class="n">mission_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">burst_index</span><span class="p">]</span>
+
+<span class="n">ascent_phase</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="n">mission_data</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">burst_time</span><span class="p">]</span>
+<span class="n">descent_phase</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="n">mission_data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="n">burst_time</span><span class="p">]</span>
+
+<span class="n">ascent_rate</span> <span class="o">=</span> <span class="n">ascent_phase</span><span class="p">[</span><span class="s1">&#39;ascent_rate_mps&#39;</span><span class="p">]</span>
+<span class="n">descent_rate</span> <span class="o">=</span> <span class="n">descent_phase</span><span class="p">[</span><span class="s1">&#39;ascent_rate_mps&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="n">burst_row</span> <span class="o">=</span> <span class="n">mission_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">burst_index</span><span class="p">]</span>
+<span class="n">burst_altitude</span> <span class="o">=</span> <span class="n">burst_row</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">burst_altitude</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33502.8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">simplekml</span>
+<span class="n">kml</span> <span class="o">=</span> <span class="n">simplekml</span><span class="o">.</span><span class="n">Kml</span><span class="p">()</span>
+<span class="n">kml</span><span class="o">.</span><span class="n">document</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Graupel-2 Actual Flight Path&quot;</span>
+
+<span class="k">def</span> <span class="nf">create_point</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">kml</span><span class="o">.</span><span class="n">newpoint</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">latitude</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span>
+    <span class="n">longitude</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span>
+    <span class="n">altitude</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">name</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">row</span><span class="p">[[</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">coords</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">point</span><span class="o">.</span><span class="n">coords</span> <span class="o">=</span> <span class="n">coords</span>
+    <span class="n">point</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> at </span><span class="si">{</span><span class="n">latitude</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">longitude</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">altitude</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">m at </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">point</span><span class="o">.</span><span class="n">altitudemode</span> <span class="o">=</span> <span class="n">simplekml</span><span class="o">.</span><span class="n">AltitudeMode</span><span class="o">.</span><span class="n">absolute</span>
+    
+<span class="k">def</span> <span class="nf">summary_stats</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">series</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">0.1f</span><span class="si">}</span><span class="s1">m/s (</span><span class="si">{</span><span class="n">series</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s1">0.1f</span><span class="si">}</span><span class="s1"> max)&#39;</span>
+
+<span class="n">create_point</span><span class="p">(</span><span class="n">mission_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Launch&#39;</span><span class="p">)</span>
+<span class="n">create_point</span><span class="p">(</span><span class="n">burst_row</span><span class="p">,</span> <span class="s1">&#39;Burst&#39;</span><span class="p">)</span>
+<span class="n">create_point</span><span class="p">(</span><span class="n">mission_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;Landing&#39;</span><span class="p">)</span>
+
+<span class="n">every_minute_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">mission_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="mi">60</span><span class="p">],</span> <span class="n">mission_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]])</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">kml</span><span class="o">.</span><span class="n">newlinestring</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Flight path&#39;</span><span class="p">)</span>
+<span class="n">path</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Ascent rate: </span><span class="si">{</span><span class="n">summary_stats</span><span class="p">(</span><span class="n">ascent_rate</span><span class="p">)</span><span class="si">}</span><span class="s1">, descent rate: </span><span class="si">{</span><span class="n">summary_stats</span><span class="p">(</span><span class="n">descent_rate</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="n">path</span><span class="o">.</span><span class="n">coords</span> <span class="o">=</span> <span class="n">every_minute_data</span><span class="p">[[</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">path</span><span class="o">.</span><span class="n">extrude</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">path</span><span class="o">.</span><span class="n">altitudemode</span> <span class="o">=</span> <span class="n">simplekml</span><span class="o">.</span><span class="n">AltitudeMode</span><span class="o">.</span><span class="n">absolute</span>
+<span class="n">path</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">linestyle</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;ffff0018&quot;</span>
+<span class="n">path</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">linestyle</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">path</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">polystyle</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;ffff0018&quot;</span>
+
+<span class="n">kml</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s1">/recorded-flight-path.kml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">kml</span><span class="o">.</span><span class="n">kml</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;kml xmlns=&quot;http://www.opengis.net/kml/2.2&quot; xmlns:gx=&quot;http://www.google.com/kml/ext/2.2&quot;&gt;
+    &lt;Document id=&quot;1&quot;&gt;
+        &lt;Style id=&quot;10&quot;&gt;
+            &lt;LineStyle id=&quot;11&quot;&gt;
+                &lt;color&gt;ffff0018&lt;/color&gt;
+                &lt;colorMode&gt;normal&lt;/colorMode&gt;
+                &lt;width&gt;4&lt;/width&gt;
+            &lt;/LineStyle&gt;
+            &lt;PolyStyle id=&quot;12&quot;&gt;
+                &lt;color&gt;ffff0018&lt;/color&gt;
+                &lt;colorMode&gt;normal&lt;/colorMode&gt;
+                &lt;fill&gt;1&lt;/fill&gt;
+                &lt;outline&gt;1&lt;/outline&gt;
+            &lt;/PolyStyle&gt;
+        &lt;/Style&gt;
+        &lt;name&gt;Graupel-2 Actual Flight Path&lt;/name&gt;
+        &lt;Placemark id=&quot;3&quot;&gt;
+            &lt;name&gt;Launch&lt;/name&gt;
+            &lt;description&gt;Launch at 47.1609, -120.8484, 657m at 2021-09-25 17:28:11&lt;/description&gt;
+            &lt;Point id=&quot;2&quot;&gt;
+                &lt;coordinates&gt;-120.84835052,47.16088485,657.3&lt;/coordinates&gt;
+                &lt;altitudeMode&gt;absolute&lt;/altitudeMode&gt;
+            &lt;/Point&gt;
+        &lt;/Placemark&gt;
+        &lt;Placemark id=&quot;5&quot;&gt;
+            &lt;name&gt;Burst&lt;/name&gt;
+            &lt;description&gt;Burst at 47.1632, -119.7372, 33503m at 2021-09-25 20:04:25&lt;/description&gt;
+            &lt;Point id=&quot;4&quot;&gt;
+                &lt;coordinates&gt;-119.73724365,47.16323852,33502.8&lt;/coordinates&gt;
+                &lt;altitudeMode&gt;absolute&lt;/altitudeMode&gt;
+            &lt;/Point&gt;
+        &lt;/Placemark&gt;
+        &lt;Placemark id=&quot;7&quot;&gt;
+            &lt;name&gt;Landing&lt;/name&gt;
+            &lt;description&gt;Landing at 47.1889, -119.4382, 343m at 2021-09-25 20:41:37&lt;/description&gt;
+            &lt;Point id=&quot;6&quot;&gt;
+                &lt;coordinates&gt;-119.43823242,47.18886184,342.9&lt;/coordinates&gt;
+                &lt;altitudeMode&gt;absolute&lt;/altitudeMode&gt;
+            &lt;/Point&gt;
+        &lt;/Placemark&gt;
+        &lt;Placemark id=&quot;9&quot;&gt;
+            &lt;name&gt;Flight path&lt;/name&gt;
+            &lt;description&gt;Ascent rate: 3.5m/s (6.4 max), descent rate: 14.9m/s (60.8 max)&lt;/description&gt;
+            &lt;styleUrl&gt;#10&lt;/styleUrl&gt;
+            &lt;LineString id=&quot;8&quot;&gt;
+                &lt;extrude&gt;1&lt;/extrude&gt;
+                &lt;altitudeMode&gt;absolute&lt;/altitudeMode&gt;
+                &lt;coordinates&gt;-120.84835052,47.16088485,657.3 -120.84776306,47.16085815,772.1 -120.84333801,47.16053771,1004.5 -120.83648681,47.15829467,1271.2542857142855 -120.82962036,47.15705108,1525.5 -120.82263946,47.15568923,1752.9 -120.81587219,47.1556015,1980.7 -120.80970764,47.15405273,2250.2 -120.80497741,47.15239334,2437.6 -120.79890441,47.15120697,2573.7 -120.7938919,47.15003967,2705.4 -120.78851318,47.14903259,2852.2 -120.78398895,47.14889907,3013.0 -120.77906799,47.14892959,3188.5 -120.77328491,47.14931106,3368.5 -120.76673889,47.14989852,3550.1 -120.75965881,47.1504898,3728.7 -120.75203704,47.15184402,3919.265909090909 -120.74409484,47.15299224,4117.3 -120.73657989,47.15447998,4300.7 -120.72917175,47.15605163,4501.2 -120.72077178,47.15848159,4654.3 -120.71237182,47.16009902,4802.3 -120.70377349,47.16132354,4946.9 -120.69529724,47.16323089,5092.2 -120.68722534,47.16501617,5247.7 -120.67948913,47.16647338,5411.6 -120.67230224,47.16791534,5576.8 -120.66547393,47.16878509,5746.7 -120.65926361,47.16941452,5911.8 -120.6533966,47.17050552,6087.0 -120.6472702,47.17139053,6257.8 -120.64120483,47.17163085,6434.3 -120.63391876,47.17178726,6605.6 -120.62591552,47.17201614,6783.8 -120.61787414,47.17142105,6956.2 -120.61027526,47.17155456,7128.685365853659 -120.60030364,47.17100143,7300.3 -120.59126281,47.17074966,7457.9 -120.58067321,47.17052078,7602.0 -120.57202148,47.17071533,7748.431034482758 -120.56150817,47.17091369,7898.7 -120.55189514,47.17054367,8053.9 -120.54261779,47.17048263,8228.7 -120.53153228,47.17144012,8446.8 -120.51983642,47.17293548,8643.0 -120.50776672,47.17504501,8855.5 -120.49460601,47.17723464,9091.6 -120.48130798,47.17971801,9295.5 -120.46775817,47.18044281,9497.0 -120.45413208,47.18113327,9687.5 -120.44124603,47.18160247,9873.7375 -120.42416381,47.18153381,10062.9 -120.40986633,47.18164825,10239.9 -120.39606475,47.18157958,10437.3 -120.38153839,47.18179321,10630.324444444444 -120.36707305,47.18187713,10837.4 -120.35285186,47.1831665,11037.9 -120.33837127,47.1843872,11222.3 -120.32254791,47.18563079,11404.547826086957 -120.30448913,47.18679046,11583.8 -120.28617858,47.18763732,11790.6 -120.26855468,47.18792724,11967.4 -120.25176239,47.18803024,12164.2 -120.2342987,47.18892669,12359.0 -120.21814727,47.19179534,12572.5 -120.20088958,47.19545745,12763.1 -120.18065643,47.19947052,12945.7 -120.15800476,47.20200347,13161.1 -120.139122,47.20278167,13359.1 -120.12239074,47.20547866,13582.2 -120.10591125,47.2087059,13786.2 -120.08994293,47.21302413,13979.371428571429 -120.07112884,47.21565628,14174.8 -120.05010223,47.21619796,14382.5 -120.03240966,47.21527481,14600.6 -120.01869201,47.21456909,14814.03953488372 -120.00527954,47.21489334,15019.7 -119.99079895,47.21556472,15212.9 -119.97610473,47.21562576,15417.0 -119.96601104,47.21514892,15660.585714285711 -119.95219421,47.21404647,15883.1 -119.94154357,47.21485519,16106.6 -119.93121337,47.2158966,16293.6 -119.9207611,47.21810531,16482.2 -119.90855407,47.21917343,16697.2 -119.89886474,47.21857833,16942.8 -119.88974761,47.21900177,17191.8 -119.8811264,47.21876907,17428.982608695653 -119.87081146,47.21885681,17647.8 -119.85953521,47.21746826,17851.6 -119.84751892,47.21429824,18046.2 -119.83870697,47.2109909,18295.067441860465 -119.83386993,47.21095275,18551.1 -119.83119201,47.21196746,18783.2 -119.82666778,47.21212768,19052.2 -119.82059478,47.21068191,19297.4625 -119.81473541,47.20575714,19523.8 -119.81420135,47.2035675,19872.0 -119.81130981,47.20253372,20103.4 -119.80838012,47.19981002,20346.5 -119.80702209,47.19741439,20594.5 -119.80316925,47.19478607,20856.0 -119.80193328,47.191082,21098.0 -119.80350494,47.18859863,21311.1 -119.80296325,47.18652343,21569.0 -119.80168914,47.18542861,21808.7 -119.80072021,47.1844635,22057.6 -119.79677581,47.18310165,22294.9 -119.79190826,47.17990875,22598.941176470587 -119.79097747,47.17537307,22853.8 -119.7904663,47.17280197,23110.3 -119.78870391,47.1704483,23365.2 -119.78942108,47.16698837,23678.525806451613 -119.78611755,47.16457366,23936.9 -119.78442382,47.16107559,24186.2 -119.78666687,47.15898895,24441.7 -119.78749084,47.16064071,24703.0 -119.78562164,47.16139221,24960.1 -119.78327941,47.16446304,25216.1 -119.77870178,47.16534805,25462.95609756097 -119.77244567,47.16245269,25716.4 -119.77171325,47.15977859,25967.9 -119.77111816,47.15956878,26229.7 -119.77124023,47.1598587,26488.19090909091 -119.77052307,47.15893936,26756.2 -119.77096557,47.15899658,27018.3 -119.77088928,47.16006851,27283.455 -119.76984405,47.16160583,27549.2 -119.76616668,47.1619606,27806.0 -119.76244354,47.16069793,28066.3 -119.76143646,47.15977478,28335.17837837838 -119.75930023,47.159729,28596.2 -119.75630187,47.16067123,28845.2 -119.75385284,47.15946197,29092.7 -119.75281524,47.15546798,29342.7 -119.75404357,47.15440368,29587.7 -119.75501251,47.15560913,29822.1 -119.7562561,47.1553421,30049.42857142857 -119.75728607,47.15431213,30287.6 -119.75569915,47.15465164,30523.9 -119.75302124,47.15610504,30749.2 -119.75054931,47.15572738,30962.155 -119.7498703,47.1534729,31176.3 -119.75042724,47.15145492,31395.6 -119.75190734,47.1504631,31613.1 -119.75309753,47.1502037,31817.075675675675 -119.75354003,47.15309906,32026.5 -119.75350189,47.15711593,32229.7 -119.75118255,47.15926742,32444.5 -119.74861907,47.16065979,32657.8 -119.7458496,47.16173171,32851.2 -119.74409484,47.16135787,33016.4 -119.74227142,47.16144943,33180.8 -119.73912048,47.16251373,33362.1 -119.73710632,47.16398239,32854.9 -119.73628234,47.16444396,29187.3 -119.73351287,47.16289138,26401.727272727272 -119.73047637,47.16257476,24078.4 -119.7289505,47.15934753,22116.4 -119.72675323,47.15730667,20436.4 -119.72412872,47.15536499,18956.68235294117 -119.71647644,47.15434265,17592.0 -119.70715332,47.15422058,16322.0 -119.69509124,47.15814971,15574.4 -119.68045043,47.15546798,14328.5 -119.66257476,47.1580162,13387.0 -119.6435852,47.16089248,12483.2 -119.62641143,47.16376876,11740.7 -119.61036682,47.16502761,11021.8 -119.59361267,47.16723632,10309.6 -119.57862091,47.16825103,9713.9 -119.56510925,47.16960144,9046.3 -119.55295562,47.17058563,8451.4 -119.54309082,47.17126464,7857.7 -119.53360748,47.17164611,7326.8 -119.52558135,47.17301177,6805.646874999999 -119.51774597,47.17409896,6294.2 -119.51052093,47.17494201,5788.2 -119.5033493,47.17636489,5259.8 -119.49451446,47.17691802,4820.254545454545 -119.48447418,47.17835235,4376.6 -119.47663879,47.1796379,3947.3 -119.47010803,47.18032073,3528.5 -119.46520233,47.18151473,3108.1 -119.4606781,47.18268966,2693.1 -119.45692443,47.18347167,2320.2 -119.45394134,47.18395996,1965.158536585366 -119.44699859,47.18545913,1593.6 -119.44029998,47.18672561,1194.0 -119.43817138,47.18702316,846.2 -119.43830108,47.18774795,543.06 -119.43823242,47.18886184,342.9&lt;/coordinates&gt;
+            &lt;/LineString&gt;
+        &lt;/Placemark&gt;
+    &lt;/Document&gt;
+&lt;/kml&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="data-analysis.html" title="previous page">Data Analysis</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By SEA7 Aerospace<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

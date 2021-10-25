@@ -23,13 +23,3 @@ payload_mass = 1460.0 * units.g
 parachute_mass = 120.0 * units.g
 balloon_mass = 1200.0 * units.g
 ```
-
-```python
-%store payload_mass
-%store parachute_mass
-%store balloon_mass
-```
-
-```python
-
-```

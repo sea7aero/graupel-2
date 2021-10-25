@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clean up data &#8212; Graupel-2</title>
+    <title>Data Analysis &#8212; Graupel-2</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,12 +49,10 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="create-kml.html" />
-    <link rel="prev" title="Launch Day" href="launch.html" />
+    <link rel="next" title="&lt;no title&gt;" href="flight-path.html" />
+    <link rel="prev" title="Graupel-2" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -92,19 +90,9 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="predictions.html">
-   Flight Predictions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="launch.html">
-   Launch Day
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Clean up data
+   Data Analysis
   </a>
  </li>
 </ul>
@@ -208,78 +196,56 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Clean up data
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clean-up-the-data">
+   Clean up the data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-analysis">
-   Data analysis
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#camera-shutoff">
+   Camera Shutoff
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#altitude">
-     Altitude
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#earth-s-atmosphere">
-       Earth’s Atmosphere
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a-better-formula">
-       A better formula
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#temperature-adjusted-altitude">
-       Temperature adjusted altitude
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sensor-problems">
-       Sensor problems
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#smoothing-noise">
-     Smoothing noise
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#altitude">
+   Altitude
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correcting-the-barometric-altitude">
+     Correcting the barometric altitude
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#smoothing-the-altitude">
-     Smoothing the altitude
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gps-altitude-noise">
+     GPS altitude noise
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#altitude-statistics">
-     Altitude statistics
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#smoothing-noise">
+   Smoothing noise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#altitude-statistics">
+   Altitude statistics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-fun-data">
+   Other Fun Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#horizontal-speed">
+     Horizontal speed
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#parachute-drag">
-     Parachute drag
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#aside-on-safety-of-a-falling-object">
-       Aside: On safety of a falling object
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#terminal-velocity">
-       Terminal Velocity
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#camera-shutoff">
-     Camera Shutoff
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weather-data">
+     Weather Data
     </a>
    </li>
   </ul>
@@ -295,20 +261,17 @@
         
               <div>
                 
-  <div class="section" id="clean-up-data">
-<h1>Clean up data<a class="headerlink" href="#clean-up-data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="data-analysis">
+<h1>Data Analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h1>
 <p>Let’s take a look at what the data from the flight computer looks like. This data was recorded by an Arduino, logging telemetry once per second from the GPS and various sensors sensors and recorded them once a second.  More details and the source code of the flight computer can be located at <a class="reference external" href="https://github.com/sea7aero/horizon2">https://github.com/sea7aero/horizon2</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">preamble</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span><span class="o">=</span> <span class="mi">150</span>
 
-<span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;../data/&#39;</span>
-
-<span class="c1"># Some data recorded at the time of flight</span>
-<span class="n">launch_time</span> <span class="o">=</span> <span class="s2">&quot;TODO&quot;</span>
-<span class="n">payload_weight_g</span> <span class="o">=</span> <span class="mf">1325.0</span> <span class="c1"># TODO</span>
-<span class="n">balloon_weight_g</span> <span class="o">=</span> <span class="mf">1200.0</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;../data&#39;</span>
 
 <span class="c1"># The flight tracker records invalid values as &quot;*&quot;, so we want to replace those with Not a Number (NaN).</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">directory</span> <span class="o">+</span> <span class="s1">&#39;/raw-data.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
@@ -477,6 +440,8 @@
 </table>
 </div></div></div>
 </div>
+<div class="section" id="clean-up-the-data">
+<h2>Clean up the data<a class="headerlink" href="#clean-up-the-data" title="Permalink to this headline">¶</a></h2>
 <p>The raw data is a bit noisy - especially the first dozen seconds or so before the GPS acquired its lock - so the first step is to clean up the invalid data and a few other transformations in order to make it easier to work with.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -679,17 +644,23 @@
 </table>
 </div></div></div>
 </div>
-<p>That’s much better, but we turned the tracker on almost an hour before launch, and that data is kind of boring, so let us compute some interesting time spans and crop our data to just the mission data.</p>
+<p>That’s much better, but we turned the tracker on before launch, and that data is kind of boring, so let us compute some interesting time spans and crop our data to just the mission data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">launch_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># TODO, index this off the GoPro data.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figure out the launch time by when it starts ascending.</span>
+<span class="n">ascent_rate</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">launch_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">ascent_rate</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">launch_millis</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;millis&#39;</span><span class="p">][</span><span class="n">launch_index</span><span class="p">]</span>
 <span class="n">launch_time</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">launch_index</span><span class="p">]</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;mission_millis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;millis&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">launch_millis</span>
 
 <span class="n">burst_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">])</span>
 <span class="n">burst_time</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">burst_index</span><span class="p">]</span>
-<span class="n">landing_time</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Figure out the landing time by when it stopped descending.</span>
+<span class="n">landing_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ascent_rate</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">ascent_rate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">landing_millis</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;millis&#39;</span><span class="p">][</span><span class="n">launch_index</span><span class="p">]</span>
+<span class="n">landing_time</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">landing_index</span><span class="p">]</span> <span class="c1"># TODO: Determine this value, it may not be the last data.</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Launch Time (UTC) : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">launch_time</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Burst Time        : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">burst_time</span><span class="p">))</span>
@@ -706,11 +677,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Launch Time (UTC) : 2021-09-25 17:28:51
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Launch Time (UTC) : 2021-09-25 17:28:11
 Burst Time        : 2021-09-25 20:04:25
 Landing Time      : 2021-09-25 20:41:37
-Mission Duration  : 0 days 03:12:46
-Ascent Duration   : 0 days 02:35:34
+Mission Duration  : 0 days 03:13:26
+Ascent Duration   : 0 days 02:36:14
 Descent Duration  : 0 days 00:37:12
 </pre></div>
 </div>
@@ -718,8 +689,8 @@ Descent Duration  : 0 days 00:37:12
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mission_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;mission_millis&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">mission_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mission_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">launch_index</span><span class="p">:</span><span class="n">landing_index</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">mission_data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -789,164 +760,157 @@ Descent Duration  : 0 days 00:37:12
   </thead>
   <tbody>
     <tr>
-      <th>2021-09-25 17:28:51</th>
-      <td>175147</td>
+      <th>2021-09-25 20:41:33</th>
+      <td>11728210</td>
       <td>2021.0</td>
       <td>9.0</td>
       <td>25.0</td>
-      <td>17.0</td>
-      <td>28.0</td>
-      <td>51.0</td>
-      <td>4.34</td>
-      <td>8.0</td>
-      <td>1.04</td>
-      <td>688.1</td>
-      <td>156.1</td>
+      <td>20.0</td>
+      <td>41.0</td>
+      <td>33.0</td>
+      <td>4.37</td>
+      <td>12.0</td>
+      <td>0.73</td>
+      <td>364.4</td>
+      <td>34.4</td>
+      <td>4.8</td>
+      <td>47.188889</td>
+      <td>-119.438377</td>
+      <td>23.58</td>
+      <td>96866.77</td>
+      <td>377.97</td>
+      <td>31.80</td>
+      <td>11593195</td>
+    </tr>
+    <tr>
+      <th>2021-09-25 20:41:34</th>
+      <td>11729211</td>
+      <td>2021.0</td>
+      <td>9.0</td>
+      <td>25.0</td>
+      <td>20.0</td>
+      <td>41.0</td>
+      <td>34.0</td>
+      <td>4.37</td>
+      <td>12.0</td>
+      <td>0.79</td>
+      <td>358.9</td>
+      <td>51.6</td>
+      <td>3.2</td>
+      <td>47.188900</td>
+      <td>-119.438339</td>
+      <td>23.63</td>
+      <td>96920.57</td>
+      <td>373.33</td>
+      <td>31.76</td>
+      <td>11594196</td>
+    </tr>
+    <tr>
+      <th>2021-09-25 20:41:35</th>
+      <td>11730215</td>
+      <td>2021.0</td>
+      <td>9.0</td>
+      <td>25.0</td>
+      <td>20.0</td>
+      <td>41.0</td>
+      <td>35.0</td>
+      <td>4.37</td>
+      <td>12.0</td>
+      <td>0.79</td>
+      <td>353.4</td>
+      <td>76.4</td>
+      <td>2.6</td>
+      <td>47.188892</td>
+      <td>-119.438301</td>
+      <td>23.68</td>
+      <td>96992.07</td>
+      <td>367.16</td>
+      <td>31.70</td>
+      <td>11595200</td>
+    </tr>
+    <tr>
+      <th>2021-09-25 20:41:36</th>
+      <td>11731216</td>
+      <td>2021.0</td>
+      <td>9.0</td>
+      <td>25.0</td>
+      <td>20.0</td>
+      <td>41.0</td>
+      <td>36.0</td>
+      <td>4.37</td>
+      <td>12.0</td>
+      <td>0.90</td>
+      <td>348.0</td>
+      <td>97.6</td>
       <td>3.0</td>
-      <td>47.160690</td>
-      <td>-120.848381</td>
-      <td>20.94</td>
-      <td>93470.10</td>
-      <td>675.52</td>
-      <td>36.10</td>
-      <td>0</td>
+      <td>47.188877</td>
+      <td>-119.438271</td>
+      <td>23.73</td>
+      <td>97054.25</td>
+      <td>361.80</td>
+      <td>31.62</td>
+      <td>11596201</td>
     </tr>
     <tr>
-      <th>2021-09-25 17:28:52</th>
-      <td>176153</td>
+      <th>2021-09-25 20:41:37</th>
+      <td>11732219</td>
       <td>2021.0</td>
       <td>9.0</td>
       <td>25.0</td>
-      <td>17.0</td>
-      <td>28.0</td>
-      <td>52.0</td>
-      <td>4.40</td>
-      <td>8.0</td>
-      <td>1.04</td>
-      <td>692.1</td>
-      <td>156.1</td>
-      <td>2.1</td>
-      <td>47.160686</td>
-      <td>-120.848351</td>
-      <td>20.90</td>
-      <td>93424.56</td>
-      <td>679.56</td>
-      <td>36.20</td>
-      <td>1006</td>
-    </tr>
-    <tr>
-      <th>2021-09-25 17:28:53</th>
-      <td>177154</td>
-      <td>2021.0</td>
-      <td>9.0</td>
-      <td>25.0</td>
-      <td>17.0</td>
-      <td>28.0</td>
-      <td>53.0</td>
-      <td>4.43</td>
-      <td>7.0</td>
-      <td>1.22</td>
-      <td>695.1</td>
-      <td>147.0</td>
-      <td>4.0</td>
-      <td>47.160698</td>
-      <td>-120.848312</td>
-      <td>20.84</td>
-      <td>93372.32</td>
-      <td>684.21</td>
-      <td>36.27</td>
-      <td>2007</td>
-    </tr>
-    <tr>
-      <th>2021-09-25 17:28:54</th>
-      <td>178156</td>
-      <td>2021.0</td>
-      <td>9.0</td>
-      <td>25.0</td>
-      <td>17.0</td>
-      <td>28.0</td>
-      <td>54.0</td>
-      <td>4.40</td>
-      <td>8.0</td>
-      <td>1.04</td>
-      <td>699.8</td>
-      <td>114.2</td>
-      <td>2.3</td>
-      <td>47.160706</td>
-      <td>-120.848267</td>
-      <td>20.74</td>
-      <td>93324.85</td>
-      <td>688.43</td>
-      <td>36.50</td>
-      <td>3009</td>
-    </tr>
-    <tr>
-      <th>2021-09-25 17:28:55</th>
-      <td>179162</td>
-      <td>2021.0</td>
-      <td>9.0</td>
-      <td>25.0</td>
-      <td>17.0</td>
-      <td>28.0</td>
-      <td>55.0</td>
-      <td>4.40</td>
-      <td>8.0</td>
-      <td>1.04</td>
-      <td>705.2</td>
-      <td>95.5</td>
-      <td>2.8</td>
-      <td>47.160702</td>
-      <td>-120.848236</td>
-      <td>20.66</td>
-      <td>93273.02</td>
-      <td>693.05</td>
-      <td>36.56</td>
-      <td>4015</td>
+      <td>20.0</td>
+      <td>41.0</td>
+      <td>37.0</td>
+      <td>4.37</td>
+      <td>12.0</td>
+      <td>0.75</td>
+      <td>342.9</td>
+      <td>112.1</td>
+      <td>3.5</td>
+      <td>47.188862</td>
+      <td>-119.438232</td>
+      <td>23.77</td>
+      <td>97115.67</td>
+      <td>356.50</td>
+      <td>31.64</td>
+      <td>11597204</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>The very observant may notice a problem in the data above… It turns out, I made a bit of a mistake in the code.  I log the data twice a second although the GPS only updates once per second.  This results in the GPS data being duplicated, which makes analysis a little more difficult.</p>
-<p>The easiest fix is to just remove every other row.</p>
 </div>
-<div class="section" id="data-analysis">
-<h1>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h1>
-<p>Now that the data is cleaned up, we can start to take a look at it and see what we can learn.  In addition to pretty graphs, we are also interested in learning how we can improve the next flight.  The following questions are particularly pressing:</p>
-<ol class="simple">
-<li><p>Why did the balloon travel so far east of its predicted course?</p></li>
-<li><p>Why did the balloon descend so fast - did the parachute work as designed?</p></li>
-<li><p>Why did the camera - a GoPro Hero Black 9 - stop recording approximately 54 minutes into the flight?</p></li>
-</ol>
-<div class="cell tag_hide_input docutils container">
+<div class="section" id="camera-shutoff">
+<h2>Camera Shutoff<a class="headerlink" href="#camera-shutoff" title="Permalink to this headline">¶</a></h2>
+<p>In Graupel-1, we had a failure of the GoPro camera at around the Tropopause.  We determined this was due to the 16850 battery we were using to charge the GoPro getting cold, reducing its output voltage, and causing a shut off.</p>
+<p>For Graupel-2, we used a large, commercial external battery bank to power both the GoPro and the flight computer. We insulated the battery with some foam and added a hand warmer for good measure.</p>
+<p>It looks like it worked well to keep the battery above critical voltages:</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We start by setting up and formatting our graphs.</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;temperature_C&#39;</span><span class="p">])</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;voltage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Effect of temperature on voltage&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature (C)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Voltage (V)&quot;</span><span class="p">)</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
-
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span><span class="o">=</span> <span class="mi">150</span>
-
-<span class="c1"># Show ticks every 15 minutes.</span>
-<span class="n">locator</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">MinuteLocator</span><span class="p">(</span><span class="n">byminute</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">45</span><span class="p">])</span>
-<span class="n">formatter</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">ConciseDateFormatter</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">pretty_plots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ax</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Minimum temperature </span><span class="si">{</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;temperature_C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2">C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Minimum voltage </span><span class="si">{</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;voltage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2">V&quot;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minimum temperature -53.3C
+Minimum voltage 4.13V
+</pre></div>
+</div>
+<img alt="_images/data-analysis_8_1.png" src="_images/data-analysis_8_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="altitude">
 <h2>Altitude<a class="headerlink" href="#altitude" title="Permalink to this headline">¶</a></h2>
-<p>The first obvious thing to do is to plot the altitude and see what we get. In our case, we have 2 sources of data for the altitude: the value reported by the GPS and a value derived from the barometric pressure sensor.  Let’s see what we’ve got…</p>
+<p>The next thing to look at is the altitude, of course. In our case, we have 2 sources of data for the altitude: the value reported by the GPS and a value derived from the barometric pressure sensor.  Let’s see what we’ve got…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
@@ -964,26 +928,12 @@ Descent Duration  : 0 days 00:37:12
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum altitude discrepency: 7005 meters
 </pre></div>
 </div>
-<img alt="_images/data-analysis_12_1.png" src="_images/data-analysis_12_1.png" />
+<img alt="_images/data-analysis_10_1.png" src="_images/data-analysis_10_1.png" />
 </div>
 </div>
-<p>Hmm… already we see something is up. The altitude from our barometer starts to drift from the altitude from the GPS?  What’s going on here?</p>
-<p>We compute the altitude from the barometric pressure in <code class="docutils literal notranslate"><span class="pre">Sensors.cpp</span></code> as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// Equation taken from BMP180 datasheet (page 16):
-//  http://www.adafruit.com/datasheets/BST-BMP180-DS000-09.pdf
-
-// Note that using the equation from wikipedia can give bad results
-// at high altitude. See this thread for more information:
-// http://forums.adafruit.com/viewtopic.php?f=22&amp;t=58064
-
-return 44330.0 * (1.0 - pow(atmosphericPressurePa / seaLevelPressurePa, 0.1903));
-</pre></div>
-</div>
-<p>The comments give us a clue that something is up, and if we follow the links we find that the formula being used is derived from the <a class="reference external" href="https://en.wikipedia.org/wiki/Barometric_formula">Barometric formula</a>, solving for altitude above sea-level. The magic numbers being used are assumptions that are derived from the <a class="reference external" href="https://en.wikipedia.org/wiki/U.S._Standard_Atmosphere">U.S. Standard Atmosphere</a>, but these values are not the same in different layers of the atmosphere…</p>
-<div class="section" id="earth-s-atmosphere">
-<h3>Earth’s Atmosphere<a class="headerlink" href="#earth-s-atmosphere" title="Permalink to this headline">¶</a></h3>
-<p>Our first problem is that the formula being used is only valid for the troposphere, and our balloon travelled through the troposphere, tropopause, and into the stratosphere!</p>
-<p>So, let’s correct that using a more accurate formula for altitude, which is described in good detail <a class="reference external" href="https://www.translatorscafe.com/unit-converter/en-US/calculator/altitude/">in this article</a> and <a class="reference external" href="https://www.mide.com/air-pressure-at-altitude-calculator">here</a> and using values from the <a class="reference external" href="https://en.wikipedia.org/wiki/International_Standard_Atmosphere">International Standard Atmosphere</a>, which is “recommended in the processing of data from geophysical and meteorological observations.”</p>
+<div class="section" id="correcting-the-barometric-altitude">
+<h3>Correcting the barometric altitude<a class="headerlink" href="#correcting-the-barometric-altitude" title="Permalink to this headline">¶</a></h3>
+<p>From <a class="reference external" href="https://sea7aero.space/graupel-1">Graupel-1</a>, we learned that the tracker computes altitude from the barometric pressue using a naive algorithm that assumes you are in the Troposphere, which is the cause of the variation betweent he two readings.  Let’s go ahead and apply what we learned there to this data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here, we&#39;re loading up the ISA atmopsheric conditions and defining some constants.</span>
@@ -1136,38 +1086,7 @@ return 44330.0 * (1.0 - pow(atmosphericPressurePa / seaLevelPressurePa, 0.1903))
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;International Standard Atmospheric (ISA) Model&quot;</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">isa</span><span class="p">[</span><span class="s1">&#39;base_temperature_C&#39;</span><span class="p">],</span> <span class="n">isa</span><span class="p">[</span><span class="s1">&#39;geopotential_altitude_m&#39;</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;altitude (m)&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;temperature (C)&quot;</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">isa</span><span class="p">[</span><span class="s1">&#39;base_pressure_Pa&#39;</span><span class="p">],</span> <span class="n">isa</span><span class="p">[</span><span class="s1">&#39;geopotential_altitude_m&#39;</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;pressure (Pa)&quot;</span><span class="p">)</span>
-
-
-<span class="n">annotate_layers</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">annotate_layers</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/data-analysis_16_0.png" src="_images/data-analysis_16_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="a-better-formula">
-<h3>A better formula<a class="headerlink" href="#a-better-formula" title="Permalink to this headline">¶</a></h3>
-<p>We can now use the values from the standard model to calculate the geopotential height, <span class="math notranslate nohighlight">\(H\)</span>, given a pressure reading, <span class="math notranslate nohighlight">\(P\)</span>.  There are two formulas, depending on whether the lapse rate, <span class="math notranslate nohighlight">\(L_b\)</span> is zero or not.</p>
-<p>\[H=H_b + \frac{-R^*T_b\ln{(\frac{P}{P_b})}}{g_0M}\]</p>
-<p>\[H=H_b + \frac{T_b}{L_b}\left[\left(\frac{P}{P_b}\right)^\frac{-R^*L_b}{g_0M}-1\right]\]</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="n">universal_gas_constant</span> <span class="o">=</span> <span class="mf">8.31432</span> <span class="c1"># R, N*m/mol*K</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">universal_gas_constant</span> <span class="o">=</span> <span class="mf">8.31432</span> <span class="c1"># R, N*m/mol*K</span>
 <span class="n">molar_mass_dry_air</span> <span class="o">=</span> <span class="mf">0.0289644</span> <span class="c1"># M, kg/mol</span>
 <span class="n">gas_constant_dry_air</span> <span class="o">=</span> <span class="n">universal_gas_constant</span> <span class="o">/</span> <span class="n">molar_mass_dry_air</span>
 <span class="n">gravitational_acceleration</span> <span class="o">=</span> <span class="mf">9.80665</span> <span class="c1"># g0, m/s^2</span>
@@ -1195,41 +1114,6 @@ return 44330.0 * (1.0 - pow(atmosphericPressurePa / seaLevelPressurePa, 0.1903))
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;better_pressure_altitude_m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">calc_altitude</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;pressure_Pa&#39;</span><span class="p">])</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">,</span> <span class="s1">&#39;better_pressure_altitude_m&#39;</span><span class="p">]])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;altitude (m)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;gps&quot;</span><span class="p">,</span> <span class="s2">&quot;better barometric&quot;</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Better altitude formula&quot;</span><span class="p">)</span>
-
-<span class="n">difference</span> <span class="o">=</span> <span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s2">&quot;gps_altitude_m&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">mission_data</span><span class="p">[</span><span class="s2">&quot;better_pressure_altitude_m&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum altitude discrepency: </span><span class="si">{</span><span class="n">difference</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> meters&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gw/fwbnxl652jx80ff49ndt1x6jzjvjfq/T/ipykernel_81444/3813892522.py:1: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  mission_data[&#39;better_pressure_altitude_m&#39;] = calc_altitude(mission_data[&#39;pressure_Pa&#39;])
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum altitude discrepency: 1874 meters
-</pre></div>
-</div>
-<img alt="_images/data-analysis_19_2.png" src="_images/data-analysis_19_2.png" />
-</div>
-</div>
-</div>
-<div class="section" id="temperature-adjusted-altitude">
-<h3>Temperature adjusted altitude<a class="headerlink" href="#temperature-adjusted-altitude" title="Permalink to this headline">¶</a></h3>
-<p>Still not great… we’re off by 1,800 meters at burst.  So, what else could be going wrong.  Investigating further, I found that one can compensate for temperature in the formula for altitude by substiting the pressure ratio,  <span class="math notranslate nohighlight">\(\frac{P}{P_b}\)</span> with a density ratio, <span class="math notranslate nohighlight">\(\frac{\rho}{\rho_b}\)</span> using the following formula:</p>
-<p>\[\frac{\rho}{\rho_b}=\frac{P}{P_b}\cdot\frac{T_b}{T}\]</p>
-<p>What happens when we try this?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># From: https://commons.erau.edu/cgi/viewcontent.cgi?article=1124&amp;context=ijaaa</span>
@@ -1262,64 +1146,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;temp_adjusted_altitude_m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">calc_altitude_temp_adjusted</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;pressure_Pa&#39;</span><span class="p">],</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;temperature_C&#39;</span><span class="p">])</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">,</span> <span class="s1">&#39;temp_adjusted_altitude_m&#39;</span><span class="p">]])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;altitude (m)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;gps&quot;</span><span class="p">,</span> <span class="s2">&quot;better barometric&quot;</span><span class="p">]);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Temperature adjusted altitude&quot;</span><span class="p">)</span>
-
-<span class="n">difference</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s2">&quot;gps_altitude_m&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">mission_data</span><span class="p">[</span><span class="s2">&quot;temp_adjusted_altitude_m&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum altitude discrepency: </span><span class="si">{</span><span class="n">difference</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> meters&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gw/fwbnxl652jx80ff49ndt1x6jzjvjfq/T/ipykernel_81444/4073196593.py:1: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  mission_data[&#39;temp_adjusted_altitude_m&#39;] = calc_altitude_temp_adjusted(mission_data[&#39;pressure_Pa&#39;], mission_data[&#39;temperature_C&#39;])
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum altitude discrepency: 2632 meters
-</pre></div>
-</div>
-<img alt="_images/data-analysis_22_2.png" src="_images/data-analysis_22_2.png" />
-</div>
-</div>
-</div>
-<div class="section" id="sensor-problems">
-<h3>Sensor problems<a class="headerlink" href="#sensor-problems" title="Permalink to this headline">¶</a></h3>
-<p>Okay, this is worse than we started!  I had to dig pretty deep through the source code of various libraries I’m using, but what I think is going on is that the sensor we are using is already adjusting for temperatures within it’s normal operating range (under 30,000 Pa) and so, by trying to compensate the altitude with the temperature, I am making things worse.</p>
-<p>Couple that with a discovery that the temperature reading above the tropopause is completely off from the standard model, and I think this explains the discrepency.</p>
-<p><strong>Lesson learned:</strong> next time I’m going to record the raw, uncompensated, data from the sensor. Also, I should try to get my hands on a sensor accurate within our expected flying conditions!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ascent_data</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="n">mission_data</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">burst_time</span><span class="p">]</span>
-<span class="n">descent_data</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="n">mission_data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="n">burst_time</span><span class="p">]</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ascent_data</span><span class="p">[</span><span class="s1">&#39;temperature_C&#39;</span><span class="p">],</span> <span class="n">ascent_data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ascent&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">descent_data</span><span class="p">[</span><span class="s1">&#39;temperature_C&#39;</span><span class="p">],</span> <span class="n">descent_data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;descent&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">isa</span><span class="p">[</span><span class="s1">&#39;base_temperature_C&#39;</span><span class="p">],</span> <span class="n">isa</span><span class="p">[</span><span class="s1">&#39;geopotential_altitude_m&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ISA&quot;</span><span class="p">)</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Expected vs actual temperature readings&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;altitude (meters)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;temperature (C)&quot;</span><span class="p">)</span>
-<span class="n">annotate_layers</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/data-analysis_24_0.png" src="_images/data-analysis_24_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_altitude_blended</span><span class="p">(</span><span class="n">pressure_Pa</span><span class="p">,</span> <span class="n">temperature_C</span><span class="p">):</span>
     <span class="k">if</span><span class="p">(</span><span class="n">pressure_Pa</span> <span class="o">&gt;</span> <span class="mi">22632</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">calc_altitude</span><span class="p">(</span><span class="n">pressure_Pa</span><span class="p">)</span>
@@ -1346,169 +1172,99 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gw/fwbnxl652jx80ff49ndt1x6jzjvjfq/T/ipykernel_81444/139312134.py:1: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  mission_data[&#39;blended_altitude_m&#39;] = calc_altitude_blended(mission_data[&#39;pressure_Pa&#39;], mission_data[&#39;temperature_C&#39;])
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum altitude discrepency: 1046 meters
 </pre></div>
 </div>
-<img alt="_images/data-analysis_26_2.png" src="_images/data-analysis_26_2.png" />
+<img alt="_images/data-analysis_16_1.png" src="_images/data-analysis_16_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="gps-altitude-noise">
+<h3>GPS altitude noise<a class="headerlink" href="#gps-altitude-noise" title="Permalink to this headline">¶</a></h3>
+<p>Okay, now the barometric altitude looks better, but what about those weird jags in the GPS data?  Those were not there in the Graupel-1 launch.  Let’s take a closer look.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plot_window</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">locator</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">MinuteLocator</span><span class="p">(</span><span class="n">byminute</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">formatter</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">ConciseDateFormatter</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">][</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        
+<span class="n">plot_window</span><span class="p">(</span><span class="s1">&#39;At launch&#39;</span><span class="p">,</span> <span class="n">launch_time</span><span class="p">,</span> <span class="n">launch_time</span> <span class="o">+</span> <span class="n">window</span><span class="p">)</span>
+<span class="n">plot_window</span><span class="p">(</span><span class="s1">&#39;Before burst&#39;</span><span class="p">,</span> <span class="n">burst_time</span> <span class="o">-</span> <span class="n">window</span><span class="p">,</span> <span class="n">burst_time</span><span class="p">)</span>
+<span class="n">plot_window</span><span class="p">(</span><span class="s1">&#39;After burst&#39;</span><span class="p">,</span> <span class="n">burst_time</span><span class="p">,</span> <span class="n">burst_time</span> <span class="o">+</span> <span class="n">window</span><span class="p">)</span>
+<span class="n">plot_window</span><span class="p">(</span><span class="s1">&#39;At landing&#39;</span><span class="p">,</span> <span class="n">landing_time</span> <span class="o">-</span> <span class="n">window</span><span class="p">,</span> <span class="n">landing_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/data-analysis_18_0.png" src="_images/data-analysis_18_0.png" />
+<img alt="_images/data-analysis_18_1.png" src="_images/data-analysis_18_1.png" />
+<img alt="_images/data-analysis_18_2.png" src="_images/data-analysis_18_2.png" />
+<img alt="_images/data-analysis_18_3.png" src="_images/data-analysis_18_3.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="smoothing-noise">
 <h2>Smoothing noise<a class="headerlink" href="#smoothing-noise" title="Permalink to this headline">¶</a></h2>
-<p>A reasonable question may be: Why bother having two sources of altitude at all? Well, other than because I could, I was primarily thinking to use the barometric pressure as a back up in case the GPS went out. Turns out, that wasn’t a worry - we maintained a strong signal lock throughout the entire journey.</p>
-<p>The other reason is that I had noticed during testing that our GPS readings were accurate but often imprecise. Even sitting still, the GPS will report altitude differences in dozens of meters. The barometer, however, was generally very precise.  Together, the two sources of altitude could be used to create an an accurate <em>and</em> precise reading.</p>
-<p>Let’s see if that holds on this flight…</p>
+<p>The noise in the GPS altitude is still a mystery to me.  It seems that roughly every 4 minutes, through the entire flight, the GPS fails to update its altitude.  It does not appear to be correlated to any other data as far as I can tell. If anyone has an idea, I’d love to hear it.</p>
+<p>However, we can correct the data fairly well.</p>
+<p>The first thing we can do is simply discard the obvious outliers where the GPS data was dropped using a “hampel” filter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gps_ascent_rate</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
-<span class="n">pressure_ascent_rate</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;pressure_altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hampel</span> <span class="kn">import</span> <span class="n">hampel</span>
 
+<span class="n">filtered_altitude</span> <span class="o">=</span> <span class="n">hampel</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">],</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">imputation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pressure_ascent_rate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gps_ascent_rate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;barometric&quot;</span><span class="p">,</span> <span class="s2">&quot;gps&quot;</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;ascent rate (m/s)&quot;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;unfiltered&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered_altitude</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;filtered&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/data-analysis_28_0.png" src="_images/data-analysis_28_0.png" />
+<img alt="_images/data-analysis_20_0.png" src="_images/data-analysis_20_0.png" />
 </div>
 </div>
-<p>Alright, what the heck! Other than some obvious outliers and some noise early in the ascent phase, it seems that the GPS altitude is much more precise over this run, especially as we get into the stratosphere.</p>
-<p>Let’s take a look at the underlying data: the barometric pressure. Maybe our barometer doesn’t work so well at low pressure.</p>
+<p>Next we can detect the discrepencies pretty easily by noting that the difference between one data point and the next is exactly 0.  This happens rather rarely in real data, so we can simply throw those data points out and interpolate to fill the gaps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;pressure_Pa&#39;</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Pressure (Pa)&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replaces data points where the differences is 0 with NaN.</span>
+<span class="n">reject_noise</span> <span class="o">=</span> <span class="n">filtered_altitude</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">filtered_altitude</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Fill those NaNs through linear interpolation.</span>
+<span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reject_noise</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Smoothed altitude&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;altitude&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;altitude (m)&#39;</span><span class="p">)</span>
 
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;pressure_Pa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Pressure delta (Pa/s)&quot;</span><span class="p">)</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Barometric pressure and delta&quot;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;ascent rate (m/s)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/data-analysis_30_0.png" src="_images/data-analysis_30_0.png" />
-</div>
-</div>
-<p>This seems reasonable enough, apart from noise as our balloon was plummeting through the troposphere. So what’s going on?</p>
-<p>After some thought, it occured to me that the formula from pressure to altitude is logarithmic! So, a small error in pressure will translate to a larger error as pressure decreases. And this is exactly what we’re seeing above.</p>
-</div>
-<div class="section" id="smoothing-the-altitude">
-<h2>Smoothing the altitude<a class="headerlink" href="#smoothing-the-altitude" title="Permalink to this headline">¶</a></h2>
-<p>Now, in order to smooth the noise in our altitude reading, I am going to apply an exponential weighted average (EWM) and then combine both the GPS and pressure readings together to get a blend.</p>
-<p>The first step is to find an alpha parameter for our EWM that looks suitable. The alpha parameter describes how much weight to apply to the most recent data point compared to the previous data points. An alpha of 1.0 applies no smoothing.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">burst_time</span><span class="p">,</span> <span class="n">landing_time</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]:</span>
-    <span class="n">smoothed_gps_data</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">smoothed_gps_data</span><span class="o">.</span><span class="n">diff</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;alpha = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Smoothed GPS ascent rate, after burst&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;ascent rate (m/s)&#39;)
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/data-analysis_33_0.png" src="_images/data-analysis_33_0.png" />
+<img alt="_images/data-analysis_22_1.png" src="_images/data-analysis_22_1.png" />
 </div>
 </div>
-<p>For the GPS altitude, with its spurious outliers, applying an aggressive smoothing looks good, but anything much higher than 0.2 loses the detail during the sudden deceleration phase of the descent (when the balloon pops and starts rocketing through the stratosphere).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]:</span>
-    <span class="n">smoothed_pressure</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;pressure_Pa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">smoothed_pressure_altitude</span> <span class="o">=</span> <span class="n">smoothed_pressure</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calc_altitude</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">smoothed_pressure_altitude</span><span class="o">.</span><span class="n">diff</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;alpha = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
-    
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Smoothed pressure ascent rate&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/data-analysis_35_0.png" src="_images/data-analysis_35_0.png" />
-</div>
-</div>
-<p>The noise in the barometric pressure appears much more normally distributed than the GPS (which, as an analog vs digtal device, makes sense), so smoothing seems to work incredibly well here.  Even aggressive values of alpha seem to track the trend very well, with a notable exception of the balloon burst.  I’ll choose an alpha of 0.1 here.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;smoothed_gps_altitude_m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;gps_altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;smoothed_pressure_Pa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;pressure_Pa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;smoothed_pressure_altitude_m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">calc_altitude_blended</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;smoothed_pressure_Pa&#39;</span><span class="p">],</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;temperature_C&#39;</span><span class="p">])</span>
-
-<span class="n">weight</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span> <span class="o">=</span> \
-    <span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;smoothed_gps_altitude_m&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span> <span class="o">+</span> \
-    <span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;smoothed_pressure_altitude_m&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">weight</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gw/fwbnxl652jx80ff49ndt1x6jzjvjfq/T/ipykernel_81444/142227778.py:1: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  mission_data[&#39;smoothed_gps_altitude_m&#39;] = mission_data[&#39;gps_altitude_m&#39;].ewm(alpha=0.2).mean()
-/var/folders/gw/fwbnxl652jx80ff49ndt1x6jzjvjfq/T/ipykernel_81444/142227778.py:2: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  mission_data[&#39;smoothed_pressure_Pa&#39;] = mission_data[&#39;pressure_Pa&#39;].ewm(alpha=0.1).mean()
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gw/fwbnxl652jx80ff49ndt1x6jzjvjfq/T/ipykernel_81444/142227778.py:3: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  mission_data[&#39;smoothed_pressure_altitude_m&#39;] = calc_altitude_blended(mission_data[&#39;smoothed_pressure_Pa&#39;], mission_data[&#39;temperature_C&#39;])
-/var/folders/gw/fwbnxl652jx80ff49ndt1x6jzjvjfq/T/ipykernel_81444/142227778.py:6: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  mission_data[&#39;altitude_m&#39;] = \
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">])</span>
-
-<span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">());</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/data-analysis_38_0.png" src="_images/data-analysis_38_0.png" />
-<img alt="_images/data-analysis_38_1.png" src="_images/data-analysis_38_1.png" />
-</div>
-</div>
+<p>Alright, that looks pretty reasonable, though with some fairly rough nosie during a portion of the descent phase.</p>
 </div>
 <div class="section" id="altitude-statistics">
 <h2>Altitude statistics<a class="headerlink" href="#altitude-statistics" title="Permalink to this headline">¶</a></h2>
@@ -1516,27 +1272,27 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">burst_altitude_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">])</span>
-<span class="n">burst_altitude_m</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="n">burst_altitude_ft</span> <span class="o">=</span> <span class="n">burst_altitude_m</span> <span class="o">/</span> <span class="mf">0.305</span>
+<span class="n">burst_altitude_m</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">m</span>
+<span class="n">burst_altitude_ft</span> <span class="o">=</span> <span class="n">burst_altitude_m</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">ft</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Burst altitude: </span><span class="si">{0:0.1f}</span><span class="s2"> meters (</span><span class="si">{1:0.1f}</span><span class="s2"> feet)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">burst_altitude_m</span><span class="p">,</span> <span class="n">burst_altitude_ft</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Burst altitude: </span><span class="si">{</span><span class="n">burst_altitude_m</span><span class="o">.</span><span class="n">magnitude</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> meters, (</span><span class="si">{</span><span class="n">burst_altitude_ft</span><span class="o">.</span><span class="n">magnitude</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> feet)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Burst altitude: 33678.2 meters (110420.3 feet)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Burst altitude: 33502.8 meters, (109917.3 feet)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ascent_rate</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can smooth out a bit of the noise in the ascent rate data with a simple exponential moving average.</span>
+<span class="n">ascent_rate</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;ascent_rate_mps&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ascent_rate</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
-<span class="c1"># We have a large discontinuity in our smoothed altitude due to sensor noise,</span>
-<span class="c1"># so I&#39;m going to clip that value from the data.</span>
-<span class="n">second_highest_ascent_rate</span> <span class="o">=</span> <span class="n">ascent_rate</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;ascent_rate_mps&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ascent_rate</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">upper</span><span class="o">=</span><span class="n">second_highest_ascent_rate</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;ascent_rate_mps&#39;</span><span class="p">])</span>
 
 <span class="n">ascent_phase</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="n">mission_data</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">burst_time</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">descent_phase</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="n">mission_data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="n">burst_time</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1546,183 +1302,85 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum descent rate: </span><span class="si">{0:0.2f}</span><span class="s2"> m/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">descent_phase</span><span class="p">[</span><span class="s1">&#39;ascent_rate_mps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">*-</span><span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average descent rate: </span><span class="si">{0:0.2f}</span><span class="s2"> m/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">descent_phase</span><span class="p">[</span><span class="s1">&#39;ascent_rate_mps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ascent rate at landing: </span><span class="si">{0:0.2f}</span><span class="s2"> m/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">descent_phase</span><span class="p">[</span><span class="s1">&#39;ascent_rate_mps&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum ascent rate: 1841.64 m/s
-Average ascent rate: 3.52 m/s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum ascent rate: 6.36 m/s
+Average ascent rate: 3.53 m/s
 
-Maximum descent rate: 158.79 m/s
-Average descent rate: 4.46 m/s
+Maximum descent rate: 60.84 m/s
+Average descent rate: 14.91 m/s
+Ascent rate at landing: 4.87 m/s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/gw/fwbnxl652jx80ff49ndt1x6jzjvjfq/T/ipykernel_81444/2190321210.py:6: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  mission_data[&#39;ascent_rate_mps&#39;] = ascent_rate.clip(upper=second_highest_ascent_rate)
-</pre></div>
+<img alt="_images/data-analysis_26_1.png" src="_images/data-analysis_26_1.png" />
 </div>
 </div>
 </div>
+<div class="section" id="other-fun-data">
+<h2>Other Fun Data<a class="headerlink" href="#other-fun-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="horizontal-speed">
+<h3>Horizontal speed<a class="headerlink" href="#horizontal-speed" title="Permalink to this headline">¶</a></h3>
+<p>In Graupel-1, our balloon reached horizontal speeds of up to 90 mph.  This time, our balloon strolled along a more leisurely pace.  This is good, because our ascent rate was lower than anticipated… if it was any faster, we would have had to drive to Idaho.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;speed_mps&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;speed_mps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ascent_phase</span><span class="p">[</span><span class="s1">&#39;speed_mps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">ascent_phase</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">])</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">annotate_layers</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_layer</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;speed_mps&#39;</span><span class="p">],</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">])</span>
+<span class="c1">#ax.plot(descent_phase[&#39;speed_mps&#39;], descent_phase[&#39;altitude_m&#39;])</span>
+
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Speed at altitude&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;speed (m/s)&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;altitude (meters)&quot;</span><span class="p">)</span>
 
-<span class="n">max_speed</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;speed_mps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Max speed: </span><span class="si">{</span><span class="n">max_speed</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+<span class="n">mph</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">mile</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">hour</span>
+<span class="n">max_speed</span> <span class="o">=</span> <span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;speed_mps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">m</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">s</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Max speed: </span><span class="si">{</span><span class="n">max_speed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">mph</span><span class="p">)</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max speed: 200.70 m/s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max speed: 97.55 mile / hour
 </pre></div>
 </div>
-<img alt="_images/data-analysis_42_1.png" src="_images/data-analysis_42_1.png" />
+<img alt="_images/data-analysis_29_1.png" src="_images/data-analysis_29_1.png" />
 </div>
 </div>
 <p>From the above data, we can see why our balloon travelled so far east from its predicted flight path. Our original estimated ascent rate was 4.9 m/s, but since we ran out of helium before hitting our target lift, our actual ascent rate averaged only 3.9 m/s.  This caused our balloon to drift through the jet stream for a longer period of time, where it was being blown around at a brisk <strong>35 m/s (~80 mph)</strong>!</p>
 </div>
-<div class="section" id="parachute-drag">
-<h2>Parachute drag<a class="headerlink" href="#parachute-drag" title="Permalink to this headline">¶</a></h2>
-<p>One of our questions is why our balloon descended as quickly as it did.  We were using a 3’ High Altitude Balloon Parachute from <a class="reference external" href="https://the-rocketman.com/recovery-html/">the-rocketman.com</a>.  Our payload weighed 1325 grams (2.9 lbs).  According to the parachute’s specs, this should have put us a little over 20 feet per second <strong>(6.1 m/s)</strong> at 1 atmosphere.</p>
-<p>Initial tests made us concerned that the descent rate was too high, so we conducted an experiment where we tossed the parachute off the Fremont bridge.  From analyzing the footage in slow motion, we were able to time the fall and measured a descent rate of between 6-7 m/s. A little high, but within our specs.</p>
-<p>What did we measure?</p>
+<div class="section" id="weather-data">
+<h3>Weather Data<a class="headerlink" href="#weather-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
-<span class="n">smoothed_descent_rate</span> <span class="o">=</span> <span class="n">descent_phase</span><span class="p">[</span><span class="s1">&#39;ascent_rate_mps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">smoothed_descent_rate</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Descent rate&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;meters / second&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">annotate_layers</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_layer</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ascent_phase</span><span class="p">[</span><span class="s1">&#39;temperature_C&#39;</span><span class="p">],</span> <span class="n">ascent_phase</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ascent&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">descent_phase</span><span class="p">[</span><span class="s1">&#39;temperature_C&#39;</span><span class="p">],</span> <span class="n">descent_phase</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;descent&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Temperature at Altitude&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;altitude (m)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;temperature (C)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/data-analysis_45_0.png" src="_images/data-analysis_45_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">close_to_ground</span> <span class="o">=</span> <span class="n">descent_phase</span><span class="p">[</span><span class="n">descent_phase</span><span class="p">[</span><span class="s1">&#39;altitude_m&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5000</span><span class="p">]</span>
-<span class="n">descent_rate_close_to_ground</span> <span class="o">=</span> <span class="n">close_to_ground</span><span class="p">[</span><span class="s1">&#39;ascent_rate_mps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average descent while under 5000 m: </span><span class="si">{0:0.2f}</span><span class="s2"> m/s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">descent_rate_close_to_ground</span><span class="p">))</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;temperature (C)&#39;)
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average descent while under 5000 m: 0.77 m/s
-</pre></div>
+<img alt="_images/data-analysis_32_1.png" src="_images/data-analysis_32_1.png" />
 </div>
 </div>
-</div>
-<p>As we can see, the balloon starts to plummet at a whopping 50 m/s in the stratosphere and then starts to decelerate as the atmospheric pressure increases, eventually tapering off to <strong>~11 m/s</strong> before hitting the ground.  That’s almost twice as fast as we predicted. What went wrong?</p>
-<div class="section" id="aside-on-safety-of-a-falling-object">
-<h3>Aside: On safety of a falling object<a class="headerlink" href="#aside-on-safety-of-a-falling-object" title="Permalink to this headline">¶</a></h3>
-<p>In model rocketry, a typical safe descent rate is usually in the 4-5 m/s range.  For HAB, it seems that a slightly higher 5-8 m/s is common. Is there a way to calculate a safe descent rate?</p>
-<p>According to the Dropped Object Prevention Scheme (<a class="reference external" href="https://www.dropsonline.org/resources-and-guidance/drops-calculator/">DROPS</a>), a blunt object achieving a kinetic energy of <strong>40 Joules</strong> or higher is likely to result in a “recordable incident” requiring more than minor first aid care.</p>
-<p>The energy of a falling object can be calculated as <span class="math notranslate nohighlight">\(KE = \frac{1}{2}mv^2\)</span>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kinetic_energy_J</span><span class="p">(</span><span class="n">mass_kg</span><span class="p">,</span> <span class="n">velocity_mps</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">mass_kg</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">velocity_mps</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="n">predicted_energy_J</span> <span class="o">=</span> <span class="n">kinetic_energy_J</span><span class="p">(</span><span class="n">payload_weight_g</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="mf">6.1</span><span class="p">)</span>
-<span class="n">actual_energy_J</span> <span class="o">=</span> <span class="n">kinetic_energy_J</span><span class="p">(</span><span class="n">payload_weight_g</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">descent_rate_close_to_ground</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The energy imparted by our falling balloon was predicted to&quot;</span>
-      <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;be </span><span class="si">{</span><span class="n">predicted_energy_J</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> J but was actually </span><span class="si">{</span><span class="n">actual_energy_J</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> J.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The energy imparted by our falling balloon was predicted tobe 24.7 J but was actually 0.4 J.
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>81.5 J</strong> is higher than the “40 Joule Rule” and likely to cause injury, so it is critical that we fix this issue before a subsequent flight.</p>
-<p>Note: <a class="reference external" href="https://www.tandfonline.com/doi/pdf/10.1080/01446193.2016.1274418">The paper</a> that the “40 Joule Rule” appears to be based off of seems to indicate that the rule is rather conservative and that the area the force is applied across is a factor in injuries.  I suspect if our balloon had fallen on an innocent bystander that it would have been painful but probably not serious.  However, I would much rather be safe than sorry!</p>
-</div>
-<div class="section" id="terminal-velocity">
-<h3>Terminal Velocity<a class="headerlink" href="#terminal-velocity" title="Permalink to this headline">¶</a></h3>
-<p>An object in free fall accelerates under the force of gravity until it reaches an equilibrium where the force of drag balances the force of gravity.  This is known as <a class="reference external" href="https://en.wikipedia.org/wiki/Terminal_velocity">terminal velocity</a> and can be rather easily derived:</p>
-<p><span class="math notranslate nohighlight">\(F_g = F_D\)</span></p>
-<p><span class="math notranslate nohighlight">\(mg = \frac{1}{2}\rho v^2AC_d\)</span></p>
-<p><span class="math notranslate nohighlight">\(V_t = \sqrt{\frac{2mg}{\rho AC_d}}\)</span></p>
-<p>We can calculate the density of air, <span class="math notranslate nohighlight">\(\rho\)</span>, from the ideal gas law: <span class="math notranslate nohighlight">\(\rho = \frac{P}{RT}\)</span> where <span class="math notranslate nohighlight">\(R\)</span> is the specific gas constant for air (we’re using dry air for simplicity).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_terminal_velocity</span><span class="p">(</span><span class="n">density</span><span class="p">,</span> <span class="n">mass_kg</span><span class="p">,</span> <span class="n">area_m2</span><span class="p">,</span> <span class="n">coefficient_drag</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mass_kg</span> <span class="o">*</span> <span class="n">gravitational_acceleration</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">density</span> <span class="o">*</span> <span class="n">area_m2</span><span class="p">,</span> <span class="n">coefficient_drag</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">calc_density</span><span class="p">(</span><span class="n">pressure_Pa</span><span class="p">,</span> <span class="n">temperature_C</span><span class="p">):</span>
-    <span class="n">temperature_K</span> <span class="o">=</span> <span class="n">temperature_C</span> <span class="o">+</span> <span class="mf">273.15</span>
-    <span class="k">return</span> <span class="n">pressure_Pa</span> <span class="o">/</span> <span class="p">(</span><span class="n">gas_constant_dry_air</span> <span class="o">*</span> <span class="n">temperature_K</span><span class="p">)</span>
-
-<span class="n">calc_terminal_velocity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">calc_terminal_velocity</span><span class="p">)</span>
-<span class="n">calc_density</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">calc_density</span><span class="p">)</span>
-
-<span class="n">density</span> <span class="o">=</span> <span class="n">calc_density</span><span class="p">(</span><span class="n">descent_phase</span><span class="p">[</span><span class="s1">&#39;pressure_Pa&#39;</span><span class="p">],</span> <span class="n">descent_phase</span><span class="p">[</span><span class="s1">&#39;temperature_C&#39;</span><span class="p">])</span>
-<span class="c1"># Using a 3&#39; rocketman parachute with approx. Cd of 0.8</span>
-<span class="c1">#WIP</span>
-<span class="c1"># predicted_terminal_velocity = calc_terminal_velocity(density, 1.325, 0.9144, 0.8)</span>
-
-<span class="c1"># ax = pretty_plots()</span>
-<span class="c1"># ax.plot(predicted_terminal_velocity)</span>
-<span class="c1"># ax.set_title(&quot;Pressure&quot;)</span>
-<span class="c1"># ax.set_ylabel(&quot;kg/m^3&quot;)</span>
-<span class="c1"># plt.show()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="camera-shutoff">
-<h2>Camera Shutoff<a class="headerlink" href="#camera-shutoff" title="Permalink to this headline">¶</a></h2>
-<p>Our final question: why did the camera shut off at 55 minutes into the flight?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pretty_plots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;temperature_C&#39;</span><span class="p">])</span>
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;voltage&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Effect of temperature on voltage&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature (C)&quot;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Voltage (V)&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Minium voltage </span><span class="si">{</span><span class="n">mission_data</span><span class="p">[</span><span class="s1">&#39;voltage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2">V&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minium voltage 4.13V
-</pre></div>
-</div>
-<img alt="_images/data-analysis_54_1.png" src="_images/data-analysis_54_1.png" />
-</div>
-</div>
-<p>The above chart shows a very strong correlation between the voltage output on the tracking computer and the temperature, reaching a minimum voltage of 6V. We knew before the mission that temperature has a negative impact on Li-ion batteries and bought batteries that were specifically advertised to work in low temperatures.</p>
-<p>However, even with this caution, we suspect that the single 16850 battery used as an external battery for the GoPro likely dropped below 3V and probably caused the camera to shut off.</p>
-<p>Another observation from this chart are the regular spikes of low voltage, which are caused by the APRS transmitter sending a packet every 60 seconds (+/- 10 seconds).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the missison data back out to a csv file.</span>
 <span class="n">mission_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">directory</span> <span class="o">+</span> <span class="s1">&#39;/clean-data.csv&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1754,8 +1412,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="launch.html" title="previous page">Launch Day</a>
-    <a class='right-next' id="next-link" href="create-kml.html" title="next page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Graupel-2</a>
+    <a class='right-next' id="next-link" href="flight-path.html" title="next page">&lt;no title&gt;</a>
 
         </div>
         
