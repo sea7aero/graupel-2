@@ -6,3 +6,4 @@ root: index
 chapters:
 - file: data-analysis
 - file: flight-path
+- file: extract-gopro.ipynb
